@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import "./App.css";
+import { IoMdMail } from "react-icons/io";
 
 type SocialLink = {
   label: string;
@@ -19,13 +22,17 @@ type Experience = {
 };
 
 const socialLinks: SocialLink[] = [
-  { label: "GitHub", href: "https://github.com/Napolite", value: "GitHub" },
+  { label: "GitHub", href: "https://github.com/Napolite", value: <FaGithub /> },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/dev-okon-emmanuel",
-    value: "Linkedin",
+    value: <FaLinkedin />,
   },
-  { label: "Email", href: "mailto:Okonemmanuelmma@gmail.com", value: "mail" },
+  {
+    label: "Email",
+    href: "mailto:Okonemmanuelmma@gmail.com",
+    value: <IoMdMail />,
+  },
 ];
 
 const skillGroups: SkillGroup[] = [
@@ -107,8 +114,45 @@ const experiences: Experience[] = [
 ];
 
 function App() {
+  const [pointer, setPointer] = useState({ x: 0, y: 0, active: false });
+
+  useEffect(() => {
+    const updatePointer = (event: PointerEvent) => {
+      setPointer({
+        x: event.clientX,
+        y: event.clientY,
+        active: true,
+      });
+    };
+
+    const resetPointer = () => {
+      setPointer((current) => ({ ...current, active: false }));
+    };
+
+    window.addEventListener("pointermove", updatePointer);
+    window.addEventListener("pointerleave", resetPointer);
+    window.addEventListener("blur", resetPointer);
+
+    return () => {
+      window.removeEventListener("pointermove", updatePointer);
+      window.removeEventListener("pointerleave", resetPointer);
+      window.removeEventListener("blur", resetPointer);
+    };
+  }, []);
+
   return (
     <main className="portfolio-shell">
+      <div
+        className="pointer-glow"
+        aria-hidden="true"
+        style={
+          {
+            "--pointer-x": `${pointer.x}px`,
+            "--pointer-y": `${pointer.y}px`,
+            opacity: pointer.active ? 1 : 0,
+          } as React.CSSProperties
+        }
+      />
       <section className="hero-panel">
         <div className="eyebrow-row">
           <span className="eyebrow">Senior Frontend Engineer</span>
@@ -130,9 +174,14 @@ function App() {
 
             <div className="social-row" aria-label="Quick links">
               {socialLinks.map((link) => (
-                <a key={link.label} className="social-link" href={link.href}>
-                  <span>{link.label}</span>
+                <a
+                  key={link.label}
+                  className="social-link"
+                  href={link.href}
+                  target="_blank"
+                >
                   <span className="social-value">{link.value}</span>
+                  <span>{link.label}</span>
                 </a>
               ))}
             </div>

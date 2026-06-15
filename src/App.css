@@ -1,3 +1,26 @@
+.pointer-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      220px circle at var(--pointer-x) var(--pointer-y),
+      rgba(214, 171, 75, 0.22),
+      rgba(214, 171, 75, 0.1) 32%,
+      rgba(214, 171, 75, 0.04) 54%,
+      transparent 72%
+    );
+  mix-blend-mode: screen;
+  filter: blur(8px);
+  transition: opacity 180ms ease;
+}
+
+.portfolio-shell {
+  position: relative;
+  z-index: 1;
+}
+
 .portfolio-shell {
   width: min(1240px, calc(100% - 32px));
   margin: 0 auto;
@@ -301,5 +324,11 @@ h1 {
 
   h1 {
     max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pointer-glow {
+    display: none;
   }
 }
