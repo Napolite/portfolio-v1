@@ -21,6 +21,13 @@ type Experience = {
   highlights: string[];
 };
 
+type Project = {
+  name: string;
+  href: string;
+  summary: string;
+  label: string;
+};
+
 const socialLinks: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/Napolite", value: <FaGithub /> },
   {
@@ -51,6 +58,57 @@ const skillGroups: SkillGroup[] = [
   {
     title: "Styling & Ecosystem",
     items: ["TailwindCSS", "Mantine UI", "GrapesJS", "Web3JS"],
+  },
+];
+
+const projects: Project[] = [
+  {
+    name: "LR Protocol",
+    href: "https://lrprotocol.com",
+    summary: "Protocol marketing and product presence with a focused Web3 presentation.",
+    label: "Live site",
+  },
+  {
+    name: "Expense Tracker",
+    href: "https://expense-tracker-swart-chi.vercel.app/",
+    summary: "A financial tracking interface for organizing spend, balances, and visibility.",
+    label: "Live demo",
+  },
+  {
+    name: "Enver Digital",
+    href: "https://enverdigital.vercel.app/",
+    summary: "Agency-style brand and service showcase built for clarity and conversion.",
+    label: "Live site",
+  },
+  {
+    name: "Tori Gate",
+    href: "https://tori-gate.vercel.app/",
+    summary: "A polished web experience centered on visual identity and product storytelling.",
+    label: "Live site",
+  },
+  {
+    name: "Vision Dashboard",
+    href: "https://vision-dahsboard.vercel.app/",
+    summary: "A dashboard interface for turning operational data into readable signal.",
+    label: "Live app",
+  },
+  {
+    name: "Optimal Seven",
+    href: "https://optimal-seven.vercel.app/",
+    summary: "A modern landing experience with a strong product-first presentation layer.",
+    label: "Live site",
+  },
+  {
+    name: "Mainstack",
+    href: "https://mainstack-gamma.vercel.app/",
+    summary: "A product or platform interface focused on structure, flow, and engagement.",
+    label: "Live app",
+  },
+  {
+    name: "Brand Positive",
+    href: "https://brand-positive.vercel.app/",
+    summary: "A brand-forward website designed to feel clean, direct, and memorable.",
+    label: "Live site",
   },
 ];
 
@@ -235,6 +293,38 @@ function App() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <hr className="section-rule" />
+
+      <section className="section-block">
+        <div className="section-heading">
+          <p className="section-label">Selected Work</p>
+          <h2>Projects</h2>
+        </div>
+
+        <div className="projects-grid" role="list" aria-label="Selected projects">
+          {projects.map((project) => (
+            <article className="project-card" role="listitem" key={project.href}>
+              <div className="project-meta">
+                <span className="project-label">{project.label}</span>
+                <a
+                  className="project-link"
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Visit
+                </a>
+              </div>
+
+              <div className="project-body">
+                <h3>{project.name}</h3>
+                <p>{project.summary}</p>
+              </div>
             </article>
           ))}
         </div>

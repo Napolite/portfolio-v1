@@ -199,6 +199,62 @@ h1 {
   gap: 16px;
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  padding: 18px;
+  display: grid;
+  gap: 18px;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project-label {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.project-link {
+  text-decoration: none;
+  color: var(--text-strong);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-link:hover {
+  border-bottom-color: var(--border-strong);
+}
+
+.project-body h3 {
+  font-size: 1.05rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+
+.project-body p {
+  color: var(--text);
+  line-height: 1.65;
+}
+
 .matrix-card {
   padding: 18px;
 }
@@ -288,6 +344,10 @@ h1 {
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 780px) {
@@ -298,6 +358,7 @@ h1 {
 
   .hero-grid,
   .skills-grid,
+  .projects-grid,
   .log-card {
     grid-template-columns: 1fr;
   }
