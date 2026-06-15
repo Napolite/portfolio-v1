@@ -65,49 +65,64 @@ const projects: Project[] = [
   {
     name: "LR Protocol",
     href: "https://lrprotocol.com",
-    summary: "Protocol marketing and product presence with a focused Web3 presentation.",
+    summary:
+      "Protocol marketing and product presence with a focused Web3 presentation.",
+    label: "Live site",
+  },
+  {
+    name: "Loan Engine Dashboard",
+    href: "https://quant-test-lime.vercel.app/",
+    summary:
+      "System loan creation and agreement management, with a focus on clarity and operational control.",
     label: "Live site",
   },
   {
     name: "Expense Tracker",
     href: "https://expense-tracker-swart-chi.vercel.app/",
-    summary: "A financial tracking interface for organizing spend, balances, and visibility.",
+    summary:
+      "A financial tracking interface for organizing spend, balances, and visibility.",
     label: "Live demo",
   },
   {
     name: "Enver Digital",
     href: "https://enverdigital.vercel.app/",
-    summary: "Agency-style brand and service showcase built for clarity and conversion.",
+    summary:
+      "Agency-style brand and service showcase built for clarity and conversion.",
     label: "Live site",
   },
   {
     name: "Tori Gate",
     href: "https://tori-gate.vercel.app/",
-    summary: "A polished web experience centered on visual identity and product storytelling.",
+    summary:
+      "A polished web experience centered on visual identity and product storytelling.",
     label: "Live site",
   },
   {
     name: "Vision Dashboard",
     href: "https://vision-dahsboard.vercel.app/",
-    summary: "A dashboard interface for turning operational data into readable signal.",
+    summary:
+      "A dashboard interface for turning operational data into readable signal.",
     label: "Live app",
   },
   {
     name: "Optimal Seven",
     href: "https://optimal-seven.vercel.app/",
-    summary: "A modern landing experience with a strong product-first presentation layer.",
+    summary:
+      "A modern landing experience with a strong product-first presentation layer.",
     label: "Live site",
   },
   {
     name: "Mainstack",
     href: "https://mainstack-gamma.vercel.app/",
-    summary: "A product or platform interface focused on structure, flow, and engagement.",
+    summary:
+      "A product or platform interface focused on structure, flow, and engagement.",
     label: "Live app",
   },
   {
     name: "Brand Positive",
     href: "https://brand-positive.vercel.app/",
-    summary: "A brand-forward website designed to feel clean, direct, and memorable.",
+    summary:
+      "A brand-forward website designed to feel clean, direct, and memorable.",
     label: "Live site",
   },
 ];
@@ -306,9 +321,17 @@ function App() {
           <h2>Projects</h2>
         </div>
 
-        <div className="projects-grid" role="list" aria-label="Selected projects">
+        <div
+          className="projects-grid"
+          role="list"
+          aria-label="Selected projects"
+        >
           {projects.map((project) => (
-            <article className="project-card" role="listitem" key={project.href}>
+            <article
+              className="project-card"
+              role="listitem"
+              key={project.href}
+            >
               <div className="project-meta">
                 <span className="project-label">{project.label}</span>
                 <a
@@ -364,6 +387,10 @@ function App() {
           ))}
         </div>
       </section>
+
+      <footer className="site-footer" aria-label="Footer">
+        <p>Designed and created with love by me.</p>
+      </footer>
     </main>
   );
 }

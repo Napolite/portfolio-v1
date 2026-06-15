@@ -335,6 +335,21 @@ h1 {
   gap: 12px;
 }
 
+.site-footer {
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.site-footer p {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 1100px) {
   .hero-grid,
   .skills-grid {
@@ -385,6 +400,11 @@ h1 {
 
   h1 {
     max-width: 100%;
+  }
+
+  .site-footer {
+    margin-top: 26px;
+    padding-top: 16px;
   }
 }
 
