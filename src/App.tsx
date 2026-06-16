@@ -34,8 +34,10 @@ function App() {
     trail.style.opacity = "1";
 
     const handleMouseMove = (e: MouseEvent) => {
-      const x = `${e.clientX}px`;
-      const y = `${e.clientY}px`;
+      const { width, height } = cursor.getBoundingClientRect();
+
+      const x = `${e.clientX - width / 2}px`;
+      const y = `${e.clientY - height / 2}px`;
 
       // 2. Directly update styles, skipping React re-renders completely
       cursor.style.setProperty("--pointer-x", x);

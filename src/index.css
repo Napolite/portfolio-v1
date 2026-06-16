@@ -51,6 +51,7 @@ body {
   background-color: rgb(250, 248, 244);
   border-radius: 50%;
   pointer-events: none;
+  /* transition: 0.05s; */
   /* transform: translate(-50%, -50%); */
   transform: translate3d(var(--pointer-x), var(--pointer-y), 0);
 }
