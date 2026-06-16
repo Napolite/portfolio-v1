@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import "./App.css";
 import { IoMdMail } from "react-icons/io";
@@ -20,36 +20,44 @@ const socialLinks: SocialLink[] = [
 ];
 
 function App() {
-  const [pointer, setPointer] = useState({ x: 0, y: 0, active: false });
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const trailRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const updatePointer = (event: PointerEvent) => {
-      setPointer({
-        x: event.clientX,
-        y: event.clientY,
-        active: true,
-      });
+    const cursor = cursorRef.current;
+    const trail = trailRef.current;
+
+    if (!cursor || !trail) return;
+
+    // 1. Reveal cursors on first movement
+    cursor.style.opacity = "1";
+    trail.style.opacity = "1";
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = `${e.clientX}px`;
+      const y = `${e.clientY}px`;
+
+      // 2. Directly update styles, skipping React re-renders completely
+      cursor.style.setProperty("--pointer-x", x);
+      cursor.style.setProperty("--pointer-y", y);
+
+      trail.style.setProperty("--pointer-x", x);
+      trail.style.setProperty("--pointer-y", y);
     };
 
-    const resetPointer = () => {
-      setPointer((current) => ({ ...current, active: false }));
-    };
-
-    window.addEventListener("pointermove", updatePointer);
-    window.addEventListener("pointerleave", resetPointer);
-    window.addEventListener("blur", resetPointer);
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      window.removeEventListener("pointermove", updatePointer);
-      window.removeEventListener("pointerleave", resetPointer);
-      window.removeEventListener("blur", resetPointer);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
   return (
     <main className="portfolio-shell">
-      <div
-        className="pointer-glow"
+      <div className="custom-cursor" aria-hidden="true" ref={cursorRef} />
+      <div className="cursor-trail" aria-hidden="true" ref={trailRef} />
+      {/* <div
+        className=""
         aria-hidden="true"
         style={
           {
@@ -58,7 +66,7 @@ function App() {
             opacity: pointer.active ? 1 : 0,
           } as React.CSSProperties
         }
-      />
+      /> */}
       <section className="hero-panel">
         <div className="eyebrow-row">
           <span className="eyebrow">Senior Frontend Engineer</span>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 :root {
   color-scheme: dark;
@@ -10,8 +10,8 @@
   --muted-2: #6f7580;
   --border: rgba(255, 255, 255, 0.09);
   --border-strong: rgba(255, 255, 255, 0.16);
-  --sans: 'Inter', system-ui, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  --sans: "Inter", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   font-family: var(--sans);
   line-height: 1.5;
   font-weight: 400;
@@ -37,14 +37,47 @@ body {
   margin: 0;
   min-width: 320px;
   background: var(--bg);
+  /* cursor: none; */
+}
+
+.custom-cursor {
+  left: 0;
+  top: 0;
+  position: fixed;
+  /* top: 0;
+  left: 0; */
+  width: 20px;
+  height: 20px;
+  background-color: rgb(250, 248, 244);
+  border-radius: 50%;
+  pointer-events: none;
+  /* transform: translate(-50%, -50%); */
+  transform: translate3d(var(--pointer-x), var(--pointer-y), 0);
+}
+
+.cursor-trail {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(214, 171, 75, 1);
+  border-radius: 50%;
+  pointer-events: none;
+  /* transform: translate(-50%, -50%); */
+  opacity: 0.5;
+  pointer-events: none;
+  transition: 0.1s;
+  transform: translate3d(var(--pointer-x), var(--pointer-y), 0);
 }
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent 85%);
