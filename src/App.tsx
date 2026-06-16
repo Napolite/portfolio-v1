@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import "./App.css";
 import { IoMdMail } from "react-icons/io";
