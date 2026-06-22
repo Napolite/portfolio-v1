@@ -3,14 +3,13 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background:
-    radial-gradient(
-      220px circle at var(--pointer-x) var(--pointer-y),
-      rgba(214, 171, 75, 0.22),
-      rgba(214, 171, 75, 0.1) 32%,
-      rgba(214, 171, 75, 0.04) 54%,
-      transparent 72%
-    );
+  background: radial-gradient(
+    220px circle at var(--pointer-x) var(--pointer-y),
+    rgba(214, 171, 75, 0.22),
+    rgba(214, 171, 75, 0.1) 32%,
+    rgba(214, 171, 75, 0.04) 54%,
+    transparent 72%
+  );
   mix-blend-mode: screen;
   filter: blur(8px);
   transition: opacity 180ms ease;
@@ -73,7 +72,11 @@
 .matrix-card,
 .log-card {
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0)
+  );
   backdrop-filter: blur(10px);
 }
 
@@ -102,6 +105,7 @@ h1 {
   line-height: 0.96;
   letter-spacing: -0.06em;
   max-width: 12ch;
+  font-display: swap;
 }
 
 .lede {
@@ -207,7 +211,11 @@ h1 {
 
 .project-card {
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0)
+  );
   backdrop-filter: blur(10px);
   padding: 18px;
   display: grid;
@@ -282,7 +290,7 @@ h1 {
 
 .matrix-card li::before,
 .log-highlights li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0.72em;
