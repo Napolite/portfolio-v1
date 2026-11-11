@@ -7,7 +7,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Frameworks & Runtimes",
-    items: ["ReactJS", "NextJS", "React Native", "Tauri"],
+    items: ["ReactJS", "NextJS", "React Native", "Flutter", "Tauri"],
   },
   {
     title: "State & Data Fetching",
@@ -86,6 +86,26 @@ export const projects: Project[] = [
 ];
 
 export const experiences: Experience[] = [
+  {
+    company: "BarefootBytes",
+    role: "Frontend Developer",
+    period: "June '26 - Nov '26",
+    highlights: [
+      "Built features in Flutter across several systems, from UI implementation to payment functionality.",
+      "Delivered design upgrades to existing screens, keeping the interface consistent across systems.",
+      "Reviewed teammates’ code and carried out QA testing to catch issues before release.",
+    ],
+  },
+  {
+    company: "Land Reserve Protocol",
+    role: "Frontend Developer",
+    period: "Jan '26 - ",
+    highlights: [
+      "Engineered the frontend of a real-world asset (RWA) tokenization platform, improving system performance by 50%.",
+      "Led a cross-functional client team to architect and launch an investor dashboard, turning complex real estate tokenization data into clear, intuitive user workflows.",
+      "Built a real-time data aggregator that normalizes fragmented on-chain yield and valuation data from multiple protocols, using GraphQL and smart contract listeners for full transparency.",
+    ],
+  },
   {
     company: "Freelancer",
     role: "Frontend Developer",
